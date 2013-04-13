@@ -26,6 +26,7 @@ module PIXI {
         public view:HTMLCanvasElement;
 
         constructor(width:number, height:number, view?:HTMLCanvasElement, transparent?:bool);
+
         public render(stage:Stage);
     }
 
@@ -169,8 +170,4 @@ module PIXI {
         public render(stage:Stage);
         public resize(width:number, height:number);
     }
-
-    
-
-    
 }
