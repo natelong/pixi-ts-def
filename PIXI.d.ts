@@ -45,14 +45,14 @@ declare module PIXI
     export var RAD_TO_DEG: number;
     export var DEG_TO_RAD: number;
 
-	/* MODULE FUNCTIONS */
-	export function autoDetectRenderer(width: number, height: number, view?: HTMLCanvasElement, antialias?, transparent?): IPixiRenderer;
+    /* MODULE FUNCTIONS */
+    export function autoDetectRenderer(width: number, height: number, view?: HTMLCanvasElement, antialias?, transparent?): IPixiRenderer;
     export function AjaxRequest(): XMLHttpRequest;
 
-	/*INTERFACES*/
+    /*INTERFACES*/
     export interface IBasicCallback
     {
-		(): void
+        (): void
     }
 
     export interface IEventCallback
@@ -62,43 +62,43 @@ declare module PIXI
 
     export interface IEvent
     {
-		type: string;
-		content: any;
-	}
+        type: string;
+        content: any;
+    }
 
     export interface IHitArea
     {
-		contains(x: number, y: number): boolean;
-	}
+        contains(x: number, y: number): boolean;
+    }
 
     export interface IInteractionDataCallback
     {
-		(interactionData: InteractionData): void
-	}
+        (interactionData: InteractionData): void
+    }
 
     export interface IPixiRenderer
     {
-		view: HTMLCanvasElement;
-		render(stage: Stage): void;
-	}
+        view: HTMLCanvasElement;
+        render(stage: Stage): void;
+    }
 
     export interface IBitmapTextStyle
     {
         font?: string;
         align?: string;
         tint?: string;
-	}
+    }
 
     export interface ITextStyle
     {
-		font?: string;
-		stroke?: string;
-		fill?: string;
-		align?: string;
-		strokeThickness?: number;
-		wordWrap?: boolean;
-		wordWrapWidth?: number;
-	}
+        font?: string;
+        stroke?: string;
+        fill?: string;
+        align?: string;
+        strokeThickness?: number;
+        wordWrap?: boolean;
+        wordWrapWidth?: number;
+    }
 
     export interface IUniform
     {
@@ -141,7 +141,7 @@ declare module PIXI
         // TODO: Find signature of filterBlock
     }
 
-	/* CLASSES */
+    /* CLASSES */
 
     export class AbstractFilter
     {
@@ -184,41 +184,41 @@ declare module PIXI
 
     export class BaseTexture extends EventTarget
     {
-		height: number;
-		width: number;
+        height: number;
+        width: number;
         source: HTMLImageElement;
         scaleMode: scaleModes;
         hasLoaded: boolean;
 
-		constructor(source: HTMLImageElement, scaleMode: scaleModes);
-		constructor(source: HTMLCanvasElement, scaleMode: scaleModes);
+        constructor(source: HTMLImageElement, scaleMode: scaleModes);
+        constructor(source: HTMLCanvasElement, scaleMode: scaleModes);
         destroy(): void;
         updateSourceImage(newSrc: string): void;
 
         static fromImage(imageUrl: string, crossorigin: boolean, scaleMode: scaleModes): BaseTexture;
         static fromCanvas(canvas: HTMLCanvasElement, scaleMode: scaleModes): BaseTexture;
-	}
+    }
 
     export class BitmapFontLoader extends EventTarget
     {
-		baseUrl: string;
-		crossorigin: boolean;
-		texture: Texture;
+        baseUrl: string;
+        crossorigin: boolean;
+        texture: Texture;
         url: string;
 
-		constructor(url: string, crossorigin: boolean);
-		load(): void;
-	}
+        constructor(url: string, crossorigin: boolean);
+        load(): void;
+    }
 
     export class BitmapText extends DisplayObjectContainer
     {
-		width: number;
+        width: number;
         height: number;
         fontName: string;
         fontSize: number;
         tint: string;
 
-		constructor(text: string, style: IBitmapTextStyle);
+        constructor(text: string, style: IBitmapTextStyle);
         setText(text: string): void;
         setStyle(style: IBitmapTextStyle): void;
     }
@@ -251,9 +251,9 @@ declare module PIXI
         maskManager: CanvasMaskManager;
         renderSession: IRenderSession;
 
-		constructor(width: number, height: number, view?: HTMLCanvasElement, transparent?: boolean);
-		render(stage: Stage): void;
-		resize(width: number, height: number): void;
+        constructor(width: number, height: number, view?: HTMLCanvasElement, transparent?: boolean);
+        render(stage: Stage): void;
+        resize(width: number, height: number): void;
     }
 
     export class CanvasTinter
@@ -275,13 +275,13 @@ declare module PIXI
 
     export class Circle implements IHitArea
     {
-		x: number;
-		y: number;
+        x: number;
+        y: number;
         radius: number;
 
-		constructor(x: number, y: number, radius: number);
-		clone(): Circle;
-		contains(x: number, y: number): boolean;
+        constructor(x: number, y: number, radius: number);
+        clone(): Circle;
+        contains(x: number, y: number): boolean;
     }
 
     export class ColorMatrixFilter extends AbstractFilter
@@ -305,7 +305,7 @@ declare module PIXI
 
     export class DisplayObject
     {
-		alpha: number;
+        alpha: number;
         buttonMode: boolean;
         defaultCursor: string;
         filterArea: Rectangle;
@@ -339,7 +339,7 @@ declare module PIXI
         touchend(e: InteractionData): void;
         touchendoutside(e: InteractionData): void;
         touchstart(e: InteractionData): void;
-	}
+    }
 
     export class DisplayObjectContainer extends DisplayObject
     {
@@ -347,25 +347,25 @@ declare module PIXI
         width: number;
         children: DisplayObject[];
 
-		addChild(child: DisplayObject): void;
-		addChildAt(child: DisplayObject, index: number): void;
-		getChildAt(index:number):DisplayObject;
+        addChild(child: DisplayObject): void;
+        addChildAt(child: DisplayObject, index: number): void;
+        getChildAt(index:number):DisplayObject;
         removeChild(child: DisplayObject): void;
         removeStageReference(): void;
-	}
+    }
 
     export class Ellipse implements IHitArea
     {
-		x: number;
-		y: number;
-		width: number;
-		height: number;
+        x: number;
+        y: number;
+        width: number;
+        height: number;
 
-		constructor(x: number, y: number, width: number, height: number);
-		clone(): Ellipse;
-		contains(x: number, y: number): boolean;
-		getBounds(): Rectangle;
-	}
+        constructor(x: number, y: number, width: number, height: number);
+        clone(): Ellipse;
+        contains(x: number, y: number): boolean;
+        getBounds(): Rectangle;
+    }
 
     export class EventTarget
     {
@@ -374,7 +374,7 @@ declare module PIXI
         addEventListener(type: string, listener: IEventCallback): void;
         dispatchEvent(event: IEvent): void;
         removeAllEventListeners(type: string): void;
-		removeEventListener(type: string, listener: IEventCallback ): void;
+        removeEventListener(type: string, listener: IEventCallback ): void;
     }
 
     export class FilterTexture
@@ -423,19 +423,19 @@ declare module PIXI
     {
         texture: Texture;
 
-		constructor(url: string, crossorigin?: boolean);
+        constructor(url: string, crossorigin?: boolean);
         load(): void;
         loadFramedSpriteSheet(frameWidth: number, frameHeight: number, textureName: string): void;
-	}
+    }
 
     export class InteractionData
     {
-		global: Point;
+        global: Point;
         target: Sprite;
         originalEvent: Event;
 
-		getLocalPosition(displayObject: DisplayObject): Point;
-	}
+        getLocalPosition(displayObject: DisplayObject): Point;
+    }
 
     export class InteractionManager
     {
@@ -447,7 +447,7 @@ declare module PIXI
         stage: Stage;
         touchs: { [id: string]: InteractionData };
 
-		constructor(stage: Stage);
+        constructor(stage: Stage);
     }
 
     export class InvertFilter
@@ -461,26 +461,26 @@ declare module PIXI
         crossorigin: boolean;
         loaded: boolean;
         url: string;
-		
-		constructor(url: string, crossorigin?: boolean);
-		load(): void;
-	}
+        
+        constructor(url: string, crossorigin?: boolean);
+        load(): void;
+    }
 
     export class MovieClip extends Sprite
     {
-		animationSpeed: number;
-		currentFrame:number;
-		loop: boolean;
-		playing: boolean;
+        animationSpeed: number;
+        currentFrame:number;
+        loop: boolean;
+        playing: boolean;
         textures: Texture[];
         totalFrames: number;
 
-		constructor(textures: Texture[]);
-		onComplete:IBasicCallback;
-		gotoAndPlay(frameNumber: number): void;
-		gotoAndStop(frameNumber: number): void;
-		play(): void;
-		stop(): void;
+        constructor(textures: Texture[]);
+        onComplete:IBasicCallback;
+        gotoAndPlay(frameNumber: number): void;
+        gotoAndStop(frameNumber: number): void;
+        play(): void;
+        stop(): void;
     }
 
     export class NormalMapFilter extends AbstractFilter
@@ -527,38 +527,38 @@ declare module PIXI
 
     export class Point
     {
-		x: number;
+        x: number;
         y: number;
 
-		constructor(x?: number, y?: number);
+        constructor(x?: number, y?: number);
         clone(): Point;
         set(x: number, y: number): void;
-	}
+    }
 
     export class Polygon implements IHitArea
     {
-		points: Point[];
+        points: Point[];
 
-		constructor(points: Point[]);
-		constructor(points: number[]);
-		constructor(...points: Point[]);
-		constructor(...points: number[]);
+        constructor(points: Point[]);
+        constructor(points: number[]);
+        constructor(...points: Point[]);
+        constructor(...points: number[]);
 
         clone(): Polygon;
-		contains(x: number, y: number): boolean;
-	}
+        contains(x: number, y: number): boolean;
+    }
 
-	export class Rectangle implements IHitArea
-	{
-		x: number;
-		y: number;
-		width: number;
+    export class Rectangle implements IHitArea
+    {
+        x: number;
+        y: number;
+        width: number;
         height: number;
 
-		constructor(x?: number, y?: number, width?: number, height?: number);
-		clone(): Rectangle;
-		contains(x: number, y: number): boolean
-	}
+        constructor(x?: number, y?: number, width?: number, height?: number);
+        clone(): Rectangle;
+        contains(x: number, y: number): boolean
+    }
 
     export class Rope
     {
@@ -588,12 +588,12 @@ declare module PIXI
         load();
     }
 
-	export class Sprite extends DisplayObjectContainer
-	{
-		anchor: Point;
-		blendMode: number;
-		texture: Texture;
-		height: number;
+    export class Sprite extends DisplayObjectContainer
+    {
+        anchor: Point;
+        blendMode: number;
+        texture: Texture;
+        height: number;
         width: number;
         tint: number;
 
@@ -601,8 +601,8 @@ declare module PIXI
         getBounds(): Rectangle;
         setTexture(texture: Texture): void;
 
-		static fromFrame(frameId: string): Sprite;
-		static fromImage(url: string): Sprite;
+        static fromFrame(frameId: string): Sprite;
+        static fromImage(url: string): Sprite;
     }
 
     export class SpriteBatch
@@ -610,26 +610,26 @@ declare module PIXI
         constructor(texture: Texture);
     }
 
-	/* TODO determine type of frames */
-	export class SpriteSheetLoader extends EventTarget
-	{
-		url: string;
-		crossorigin: boolean;
-		baseUrl: string;
-		texture: Texture;
+    /* TODO determine type of frames */
+    export class SpriteSheetLoader extends EventTarget
+    {
+        url: string;
+        crossorigin: boolean;
+        baseUrl: string;
+        texture: Texture;
         frames: Object;
 
-		constructor(url: string, crossorigin?: boolean);
-		load();
-	}
+        constructor(url: string, crossorigin?: boolean);
+        load();
+    }
 
-	export class Stage extends DisplayObjectContainer
-	{
-		interactive: boolean;
+    export class Stage extends DisplayObjectContainer
+    {
+        interactive: boolean;
         interactionManager: InteractionManager;
 
-		constructor(backgroundColor: number);
-		getMousePosition(): Point;
+        constructor(backgroundColor: number);
+        getMousePosition(): Point;
         setBackgroundColor(backgroundColor: number): void;
         setInteractionDelegate(domElement: HTMLElement): void;
     }
@@ -639,27 +639,27 @@ declare module PIXI
         constructor(texture: Texture, width: number, height: number);
     }
 
-	export class Text extends Sprite
+    export class Text extends Sprite
     {
         canvas: HTMLCanvasElement;
         context: CanvasRenderingContext2D;
 
-		constructor(text: string, style: ITextStyle);
-		destroy(destroyTexture: boolean): void;
-		setText(text: string): void;
-		setStyle(style: ITextStyle): void;
-	}
+        constructor(text: string, style: ITextStyle);
+        destroy(destroyTexture: boolean): void;
+        setText(text: string): void;
+        setStyle(style: ITextStyle): void;
+    }
 
-	export class Texture extends EventTarget
-	{
-		baseTexture: BaseTexture;
-		frame: Rectangle;
+    export class Texture extends EventTarget
+    {
+        baseTexture: BaseTexture;
+        frame: Rectangle;
         trim: Point;
         width: number;
         height: number;
 
-		constructor(baseTexture: BaseTexture, frame?: Rectangle);
-		destroy(destroyBase: boolean): void;
+        constructor(baseTexture: BaseTexture, frame?: Rectangle);
+        destroy(destroyBase: boolean): void;
         setFrame(frame: Rectangle): void;
         render(displayObject: DisplayObject, position: Point, clear: boolean): void;
 
@@ -667,24 +667,24 @@ declare module PIXI
         static fromFrame(frameId: string): Texture;
         static fromCanvas(canvas: HTMLCanvasElement, scaleMode: scaleModes): Texture;
         static addTextureToCache(texture: Texture, id: string): void;
-		static removeTextureFromCache(id: string): Texture;
-	}
+        static removeTextureFromCache(id: string): Texture;
+    }
 
-	export class TilingSprite extends DisplayObjectContainer
+    export class TilingSprite extends DisplayObjectContainer
     {
-		width: number;
+        width: number;
         height: number;
         renderable: boolean;
         texture: Texture;
         tint: number;
-		tilePosition: Point;
+        tilePosition: Point;
         tileScale: Point;
         tileScaleOffset: Point;
         blendMode: blendModes;
 
-		constructor(texture: Texture, width: number, height: number);
+        constructor(texture: Texture, width: number, height: number);
         generateTilingTexture(forcePowerOfTwo: boolean): void;
-	}
+    }
 
     export class TwistFilter extends AbstractFilter
     {
@@ -721,7 +721,7 @@ declare module PIXI
         destroy(): void;
     }
 
-	export class WebGLRenderer implements IPixiRenderer
+    export class WebGLRenderer implements IPixiRenderer
     {
         contextLost: boolean;
         width: number;
@@ -771,5 +771,5 @@ declare module PIXI
 
 declare module PIXI.PolyK
 {
-	export function Triangulate(p: number[]): number[];
+    export function Triangulate(p: number[]): number[];
 }
