@@ -1,4 +1,4 @@
-// Type definitions for PIXI 1.3
+// Type definitions for PIXI 1.5.0
 // Project: https://github.com/GoodBoyDigital/pixi.js/
 // Definitions by: xperiments <http://github.com/xperiments>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
