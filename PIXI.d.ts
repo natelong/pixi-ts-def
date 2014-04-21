@@ -3,7 +3,6 @@
 // Definitions by: xperiments <http://github.com/xperiments>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-///<reference path="webgl.d.ts"/>
 declare module PIXI {
 
     /* CONSTANTS */
@@ -29,12 +28,6 @@ declare module PIXI {
         SATURATION,
         COLOR,
         LUMINOSITY,
-    }
-
-    export enum scaleModes {
-        DEFAULT,
-        LINEAR,
-        NEAREST,
     }
 
     export var INTERACTION_REQUENCY: number;
@@ -518,6 +511,12 @@ declare module PIXI {
         constructor(texture: Texture, points: Point[]);
         refresh();
         setTexture(texture: Texture);
+    }
+
+    export class scaleModes {
+        public static DEFAULT: number;
+        public static LINEAR: number;
+        public static NEAREST: number;
     }
 
     export class SepiaFilter {
