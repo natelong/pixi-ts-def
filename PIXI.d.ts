@@ -62,8 +62,14 @@ declare module PIXI {
     }
 
     export interface IPixiRenderer {
+        type: number;
+        transparent: boolean;
+        width: number; 
+        height: number; 
         view: HTMLCanvasElement;
+        
         render(stage: Stage): void;
+        resize(width: number, height: number): void;//
     }
 
     export interface IBitmapTextStyle {
@@ -655,6 +661,7 @@ declare module PIXI {
     }
 
     export class WebGLRenderer implements IPixiRenderer {
+        type: number;
         contextLost: boolean;
         width: number;
         height: number;
