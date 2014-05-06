@@ -548,7 +548,7 @@ declare module PIXI {
         static fromImage(url: string): Sprite;
     }
 
-    export class SpriteBatch {
+    export class SpriteBatch extends PIXI.DisplayObjectContainer {
         constructor(texture?: Texture);
     }
 
