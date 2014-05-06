@@ -305,7 +305,7 @@ declare module PIXI {
         height: number;
         width: number;
         children: DisplayObject[];
-
+        constructor();
         addChild(child: DisplayObject): void;
         addChildAt(child: DisplayObject, index: number): void;
         getChildAt(index: number): DisplayObject;
@@ -549,7 +549,7 @@ declare module PIXI {
     }
 
     export class SpriteBatch {
-        constructor(texture: Texture);
+        constructor(texture?: Texture);
     }
 
     /* TODO determine type of frames */
