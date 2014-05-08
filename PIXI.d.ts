@@ -69,7 +69,7 @@ declare module PIXI {
         view: HTMLCanvasElement;
         
         render(stage: Stage): void;
-        resize(width: number, height: number): void;//
+        resize(width: number, height: number): void;
     }
 
     export interface IBitmapTextStyle {
