@@ -311,7 +311,7 @@ declare module PIXI {
         height: number;
         width: number;
         children: DisplayObject[];
-
+        constructor();
         addChild(child: DisplayObject): void;
         addChildAt(child: DisplayObject, index: number): void;
         getChildAt(index: number): DisplayObject;
@@ -554,8 +554,8 @@ declare module PIXI {
         static fromImage(url: string): Sprite;
     }
 
-    export class SpriteBatch {
-        constructor(texture: Texture);
+    export class SpriteBatch extends PIXI.DisplayObjectContainer {
+        constructor(texture?: Texture);
     }
 
     /* TODO determine type of frames */
