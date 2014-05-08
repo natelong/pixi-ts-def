@@ -36,7 +36,7 @@ declare module PIXI {
     export var DEG_TO_RAD: number;
 
     /* MODULE FUNCTIONS */
-    export function autoDetectRenderer(width: number, height: number, view?: HTMLCanvasElement, antialias?, transparent?): IPixiRenderer;
+    export function autoDetectRenderer(width: number, height: number, view?: HTMLCanvasElement, transparent?, antialias?): IPixiRenderer;
     export function AjaxRequest(): XMLHttpRequest;
 
     /*INTERFACES*/
@@ -305,6 +305,7 @@ declare module PIXI {
         touchend(e: InteractionData): void;
         touchendoutside(e: InteractionData): void;
         touchstart(e: InteractionData): void;
+        touchmove(e: InteractionData): void;
     }
 
     export class DisplayObjectContainer extends DisplayObject {
