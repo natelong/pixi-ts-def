@@ -148,6 +148,7 @@ declare module PIXI {
 
         constructor(assetURLs: string[], crossorigin: boolean);
         load(): void;
+        onComplete(): void;
     }
 
     export class AtlasLoader extends EventTarget {
@@ -606,8 +607,9 @@ declare module PIXI {
         destroy(destroyBase: boolean): void;
         setFrame(frame: Rectangle): void;
         render(displayObject: DisplayObject, position: Point, clear: boolean): void;
+        on(event: string, callback: Function): void;
 
-        static fromImage(imageUrl: string, crossorigin: boolean, scaleMode: scaleModes): Texture;
+        static fromImage(imageUrl: string, crossorigin?: boolean, scaleMode?: scaleModes): Texture;
         static fromFrame(frameId: string): Texture;
         static fromCanvas(canvas: HTMLCanvasElement, scaleMode: scaleModes): Texture;
         static addTextureToCache(texture: Texture, id: string): void;
