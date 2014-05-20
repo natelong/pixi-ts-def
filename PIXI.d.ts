@@ -148,6 +148,7 @@ declare module PIXI {
 
         constructor(assetURLs: string[], crossorigin: boolean);
         load(): void;
+        onComplete(): void;
     }
 
     export class AtlasLoader extends EventTarget {
