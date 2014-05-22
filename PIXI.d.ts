@@ -317,7 +317,8 @@ declare module PIXI {
         addChild(child: DisplayObject): void;
         addChildAt(child: DisplayObject, index: number): void;
         getChildAt(index: number): DisplayObject;
-        removeChild(child: DisplayObject): void;
+        removeChild(child: DisplayObject): DisplayObject;
+        removeChildAt(index:number ): DisplayObject;
         removeStageReference(): void;
     }
 
@@ -708,6 +709,8 @@ declare module PIXI {
         stop(): void;
     }
 }
+
+declare function requestAnimFrame( animate: PIXI.IBasicCallback );
 
 declare module PIXI.PolyK {
     export function Triangulate(p: number[]): number[];
