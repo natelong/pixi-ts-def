@@ -364,7 +364,7 @@ declare module PIXI {
         lineWidth: number;
         tint: number;
 
-        beginFill(color: number, alpha: number): void;
+        beginFill(color: number, alpha?: number): void;
         clear(): void;
         drawCircle(x: number, y: number, radius: number): void;
         drawEllipse(x: number, y: number, width: number, height: number): void;
@@ -591,7 +591,7 @@ declare module PIXI {
         canvas: HTMLCanvasElement;
         context: CanvasRenderingContext2D;
 
-        constructor(text: string, style: ITextStyle);
+        constructor(text: string, style?: ITextStyle);
         destroy(destroyTexture: boolean): void;
         setText(text: string): void;
         setStyle(style: ITextStyle): void;
@@ -607,12 +607,12 @@ declare module PIXI {
         constructor(baseTexture: BaseTexture, frame?: Rectangle);
         destroy(destroyBase: boolean): void;
         setFrame(frame: Rectangle): void;
-        render(displayObject: DisplayObject, position: Point, clear: boolean): void;
+        render(displayObject: DisplayObject, position?: Point, clear?: boolean): void;
         on(event: string, callback: Function): void;
 
         static fromImage(imageUrl: string, crossorigin?: boolean, scaleMode?: scaleModes): Texture;
         static fromFrame(frameId: string): Texture;
-        static fromCanvas(canvas: HTMLCanvasElement, scaleMode: scaleModes): Texture;
+        static fromCanvas(canvas: HTMLCanvasElement, scaleMode?: scaleModes): Texture;
         static addTextureToCache(texture: Texture, id: string): void;
         static removeTextureFromCache(id: string): Texture;
     }
@@ -708,6 +708,21 @@ declare module PIXI {
         start(): void;
         stop(): void;
     }
+    
+    export class RenderTexture extends Texture{
+		width:number;
+		height:number;
+		frame:Rectangle;
+		baseTexture:BaseTexture;
+		renderer:IPixiRenderer;
+
+		constructor(width, height, renderer?, scaleMode?);
+		resize(width, height);
+		renderWebGL(displayObject:DisplayObject, position, clear);
+		renderCanvas(displayObject:DisplayObject, position, clear);
+
+	}
+	
 }
 
 declare function requestAnimFrame( animate: PIXI.IBasicCallback );
