@@ -37,7 +37,13 @@ declare module PIXI {
 
     /* MODULE FUNCTIONS */
     export function autoDetectRenderer(width: number, height: number, view?: HTMLCanvasElement, transparent?, antialias?): IPixiRenderer;
+    export function autoDetectRecommendedRenderer(width: number, height: number, view?: HTMLCanvasElement, transparent?, antialias?): IPixiRenderer;
     export function AjaxRequest(): XMLHttpRequest;
+    export function hex2rgb(hex);
+    export function rgb2hex(rgb);
+    export function canUseNewCanvasBlendModes();
+    export function getNextPowerOfTwo(number);
+    
 
     /*INTERFACES*/
     export interface IBasicCallback {
