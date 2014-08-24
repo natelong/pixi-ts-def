@@ -600,6 +600,7 @@ declare module PIXI {
     export class Texture extends EventTarget {
         baseTexture: BaseTexture;
         frame: Rectangle;
+        crop: Rectangle;
         trim: Point;
         width: number;
         height: number;
