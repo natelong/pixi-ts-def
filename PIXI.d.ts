@@ -440,6 +440,9 @@ declare module PIXI {
 
         constructor(textures: Texture[]);
         onComplete: IBasicCallback;
+	static fromFrames(frames: string[]): MovieClip;
+	static fromImages(images: string[]): MovieClip;
+
         gotoAndPlay(frameNumber: number): void;
         gotoAndStop(frameNumber: number): void;
         play(): void;
