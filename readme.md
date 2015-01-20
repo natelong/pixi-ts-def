@@ -1,30 +1,9 @@
-# PIXI TypeScript Definition
+# Thanks for all the fish!
 
-This is just a basic definition file to make it easier to use the [PIXI](https://github.com/GoodBoyDigital/pixi.js) library in TypeScript.
+Clark Stevenson (@clark-stevenson) has done some great work in cleaning up and modernizing this definition file, so the best place to look for a PIXI TypeScript definitions is in the official Phaser.io repo:
 
-In my experience, it's easiest to keep the main PIXI.js file separate from my own scripts and just reference it inside my TypeScript like so:
+https://github.com/photonstorm/phaser/blob/master/typescript/pixi.d.ts
 
-```TypeScript
-///<reference path="PIXI.d.ts"/>
+(permalink https://github.com/photonstorm/phaser/blob/a67d2df6f04a5ede81b51f838b0d6e6dddabe9ba/typescript/pixi.d.ts)
 
-(function() {
-var renderer = new PIXI.WebGLRenderer(800, 600);
-var stage    = new PIXI.Stage();
-
-document.body.appendChild(renderer.view);
-
-animate();
-
-function animate() {
-    renderer.render(stage);
-    requestAnimationFrame(animate);
-}
-}());
-```
-
-Then your HTML file should just include the PIXI.js file then your main TypeScript output:
-
-```HTML
-<script src="js/Pixi.js"></script>
-<script src="js/main.js"></script>
-```
+Thanks to all who've filed bugs and submitted pull requests!
